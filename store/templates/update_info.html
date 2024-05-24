@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <header class="bg-success py-2">
+        <div class="container px-3 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">User info</h1>
+            </div>
+        </div>
+    </header>
+    <div class='container'>
+        <div class'row'>
+            <center>
+                <div class='col-8 py-5'>
+                    <form method="POST"  action="{% url 'update_info' %}">
+                        {% csrf_token %}
+                        <strong>Billing Information</strong>
+                        <br>
+                        <br>
+                        {{ form.as_p}}
+                        <br>
+                        <strong>Shipping Information</strong>
+                        <br>
+                        <br>
+                        {{shipping_form.as_p}}
+                        <button type="submit" class="btn btn-success">Save Changes</button>
+                    </form>
+                </div>
+            </center>
+        </div>
+    </div>
+{% endblock content %}

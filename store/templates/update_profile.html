@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <header class="bg-success py-2">
+        <div class="container px-3 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Profile</h1>
+            </div>
+        </div>
+    </header>
+    <div class='container'>
+        <div class'row'>
+            <center>
+                <div class='col-8 pt-5'>
+                    <form method="POST"  action="{% url 'update_profile' %}">
+                        {% csrf_token %}
+                        {{ user_form.as_p}}
+                        <button type="submit" class="btn btn-secondary mt-2">Save Changes</button>
+                    </form>
+                </div>
+            </center>
+            <div class='col mb-5' style="padding-left: 17%; ">
+                <a href="{% url 'update_password' %}" class="btn btn-success mt-2">Change Password</a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
